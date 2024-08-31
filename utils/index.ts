@@ -17,7 +17,7 @@ const normalizeUrl = (url: string) =>
   hasProtocol(url) ? url : addPrependingSlash(url);
 
 const getFetchClient = (defaultOptions = {}) => {
-  instance.defaults.baseURL = process.env.BACKEND_ENDPOINT || 'http://127.0.0.1:3000';
+  instance.defaults.baseURL = process.env.BACKEND_ENDPOINT;
   return {
     get: (url: string, config?: RequestConfig) =>
       instance.get(normalizeUrl(url), { ...defaultOptions, ...config }),
